@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './App.css'
-import { TextFeedback, IconFeedback } from './feedback';
-import { CheckboxOption } from './option';
+import '../App.css'
+import { TextFeedback, IconFeedback } from './Feedback';
+import { CheckboxOption } from './Option';
 
 
 function Checkbox({qNo, question, options, onChange, showFeedback, correct}) {

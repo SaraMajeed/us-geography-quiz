@@ -1,12 +1,10 @@
 import { useState } from 'react'
 
 import './App.css'
-import Textbox from './textbox'
-import Dropdown from './dropdown'
-import Checkbox from './checkbox'
-import Radio from './radio'
+import Question from './components/Question';
 
 function App() {
+  // console.log(data);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [attempts, setAttempts] = useState(0);
@@ -52,20 +50,6 @@ function App() {
   const [q10Ans, setQ10Ans] = useState("");
   const [q10Correct, setQ10Correct] = useState(false);
 
-  const questions = {
-    textbox: ["What is the capital of California?", "What city is the Golden Gate Bridge located?", "What state is the only state that starts with the letter P?", "What California city shares a name with another country?"],
-    dropdown: ["What is the longest river?", "What is the lowest point (elevation) in the US?"],
-    checkbox: ["What presidents are carved into mount Rushmore?", "Which two lakes are connected by Niagara Falls?"],
-    radio: ["What is the smallest US State?", "What US State has the largest number of endangered species?"]
-  }
-
-  const answers = {
-    textbox: ["sacramento", "san francisco", "pennsylvania", "calexico"],
-    dropdown: ["mo", "dv"],
-    checkbox: [["Jefferson", "Roosevelt"], ["Erie", "Ontario"]],
-    radio: ["Rhode Island", "Hawaii"]
-  }
-
   const rightAnswer = () => {
     setScore((score) => score + 10);
   }
@@ -108,129 +92,10 @@ function App() {
   return (
     <>
       <div>
-        <h1 className="p-12 bg-cyan-300">US Geography Quiz</h1>
-      </div>
-      <Textbox 
-        qNo = {1} 
-        question = {questions.textbox[0]} 
-        showFeedback = {showFeedback}
-        correct = {q1Correct}
-        onChange = {e => {
-          setQ1Ans(e.target.value);
-        }} 
-      />
+         <h1 className="p-12 bg-cyan-300">US Geography Quiz</h1>
+       </div>
 
-      <Dropdown 
-        qNo = {2} 
-        question = {questions.dropdown[0]} 
-        options = {{ms: "Mississippi", mo: "Missouri", co: "Colorado", de: "Delaware"}}
-        showFeedback = {showFeedback}
-        correct = {q2Correct}
-        onChange = {e => {
-          setQ2Ans(e.target.value);
-        }}
-      />
-
-      <Checkbox 
-        qNo = {3} 
-        question = {questions.checkbox[0]} 
-        options = {["A. Jackson", "B. Franklin", "T. Jefferson", "T. Roosevelt"]}
-        showFeedback = {showFeedback}
-        correct = {q3Correct}
-        onChange = {() => {
-          setQ3Ans({
-            jackson: document.getElementById("A. Jackson").checked,
-            franklin: document.getElementById("B. Franklin").checked,
-            jefferson: document.getElementById("T. Jefferson").checked,
-            roosevelt: document.getElementById("T. Roosevelt").checked
-          })
-        }}
-        
-      />
-
-      <Radio 
-        qNo = {4} 
-        question = {questions.radio[0]} 
-        options = {["Maine", "Rhode Island", "Maryland", "Delaware"]}
-        showFeedback = {showFeedback}
-        correct = {q4Correct}
-        onChange = {e => {
-          setQ4Ans(e.target.value)
-        }}
-      />
-
-      <Textbox 
-        qNo = {5} 
-        question = {questions.textbox[1]}
-        showFeedback = {showFeedback}
-        correct = {q5Correct}
-        onChange = {e => {
-          setQ5Ans(e.target.value)
-        }} 
-      />
-
-      <Checkbox 
-        qNo = {6} 
-        question = {questions.checkbox[1]} 
-        options = {["Erie", "Ontario", "Michigan", "Huron"]}
-        showFeedback = {showFeedback}
-        correct = {q6Correct}
-        onChange = {() => {
-          setQ6Ans({
-            erie: document.getElementById("Erie").checked,
-            ontario: document.getElementById("Ontario").checked,
-            michigan: document.getElementById("Michigan").checked,
-            huron: document.getElementById("Huron").checked
-          })
-        }}
-      />
-
-      <Dropdown 
-        qNo = {7} 
-        question = {questions.dropdown[1]} 
-        options = {
-          {dv: "Death Valley, California", 
-          no: "New Orleans, Louisiana", 
-          co: "Coachella, California", 
-          ssb: "Salton Sea Beach, California"}
-        }
-        showFeedback = {showFeedback}
-        correct = {q7Correct}
-        onChange = {e => {
-          setQ7Ans(e.target.value)
-        }}
-      />
-
-      <Radio 
-        qNo = {8} 
-        question = {questions.radio[1]} 
-        options = {["Hawaii", "Alaska", "Texas", "Florida"]}
-        showFeedback = {showFeedback}
-        correct = {q8Correct}
-        onChange = {e => {
-          setQ8Ans(e.target.value)
-        }}
-      />
-
-      <Textbox 
-        qNo = {9} 
-        question = {questions.textbox[2]}
-        showFeedback = {showFeedback}
-        correct = {q9Correct}
-        onChange = {e => {
-          setQ9Ans(e.target.value)
-        }} 
-      />
-
-      <Textbox 
-        qNo = {10} 
-        question = {questions.textbox[3]}
-        showFeedback = {showFeedback}
-        correct = {q10Correct}
-        onChange = {e => {
-          setQ10Ans(e.target.value)
-        }} 
-      />
+      <Question />
 
       <button 
         type="submit" 

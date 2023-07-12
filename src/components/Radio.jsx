@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './App.css'
-import { TextFeedback, IconFeedback } from './feedback';
-import { RadioOption } from './option';
+import '../App.css'
+import { TextFeedback, IconFeedback } from './Feedback';
+import { RadioOption } from './Option';
 
 function Radio({qNo, question, options, onChange, showFeedback, correct}) {
 

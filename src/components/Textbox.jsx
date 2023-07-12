@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
-import {TextFeedback, IconFeedback} from './feedback';
+import '../App.css'
+import {TextFeedback, IconFeedback} from './Feedback';
 
 function Textbox({qNo, question, onChange, showFeedback, correct}) {
   
