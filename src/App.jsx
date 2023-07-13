@@ -3,8 +3,57 @@ import { useState } from 'react'
 import './App.css'
 import data from './assets/questions'
 import Question from './components/Question';
+import Textbox from "./components/Textbox.jsx";
+import {IconFeedback, TextFeedback} from "./components/Feedback.jsx";
+
+class QuizQuestion {
+  constructor(args) {
+    this.question = args.question; // question text
+    this.correctAnswer = args.correctAnswer; // correct answer
+    this.answer = args.answer; // user answer
+    this.answers = args.answers // array of possible answers for multiple choice
+    this.type = args.type; // type of question (text, dropdown, checkbox, radio)
+  }
+
+  get isCorrect() {
+    return this.correctAnswer === this.answer;
+  }
+}
+
+
+
+function QuestionComponent(props) {
+  const q = props.question;
+  const type = q.type;
+  const question = q.question;
+  const answer = q.answer;
+  const correctAnswer = q.correctAnswer;
+  const correct = q.isCorrect;
+
+  if(type === "text") {
+    return (
+      <div className="border-2 p-4 my-2">
+        <h3><IconFeedback qNo = {qNo} correct = {correct} showFeedback = {showFeedback}/>{qNo}. {question}</h3>
+        <input className = "border-2 my-2" type="text" id={`q${qNo}`} onChange = {(e) => {
+          q.answer = e.target.value;
+        }}/>
+        <TextFeedback qNo = {qNo} correct = {correct} showFeedback = {showFeedback}/>
+      </div>
+
+    )
+  } else if(type === "dropdown") {
+    //
+  }
+  // ...
+}
 
 function App() {
+  const [questions, setQuestions] = useState([
+    QuizQuestion({
+      // ...
+    }),
+  ]);
+
   // console.log(data);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
