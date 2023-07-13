@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
+import data from './assets/questions'
 import Question from './components/Question';
 
 function App() {
@@ -95,7 +96,7 @@ function App() {
          <h1 className="p-12 bg-cyan-300">US Geography Quiz</h1>
        </div>
 
-      <Question />
+      <Question data = {data}/>
 
       <button 
         type="submit" 

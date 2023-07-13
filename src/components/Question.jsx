@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import data from '../assets/questions'
+
 import Textbox from './Textbox'
 import Dropdown from './Dropdown'
 import Checkbox from './Checkbox'
 import Radio from './Radio'
 
-export default function Question() {
+export default function Question({data}) {
     const listItems = data.map((d, i) => 
         d.type == "textbox" && 
         <div key={i}>
