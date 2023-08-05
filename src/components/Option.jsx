@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import '../App.css'
 
-export function CheckboxOption({option, onChange}) {
+export function CheckboxOption({option, userAnswer}) {
   
   return (
     <div className="flex-1 justify-center my-2">
-      <input  type="checkbox" id={option} onChange={onChange}  />
+      <input  type="checkbox" id={option} onChange={userAnswer}/>
       <label className = "ml-1" htmlFor={option}>{option}</label>
     </div>
-    
   )
 }
 

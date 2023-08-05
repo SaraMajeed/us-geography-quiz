@@ -12,7 +12,7 @@ export default [
   },
   {
     question: "What presidents are carved into mount Rushmore?",
-    answer: ["Jefferson", "Roosevelt"],
+    answer: ["T. Jefferson", "T. Roosevelt"],
     options: ["A. Jackson", "B. Franklin", "T. Jefferson", "T. Roosevelt"],
     type: "checkbox",
   },
